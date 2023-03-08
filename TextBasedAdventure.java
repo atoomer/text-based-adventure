@@ -1,8 +1,11 @@
 import java.util.Scanner;
 import java.lang.Math;
 
+import javax.lang.model.util.ElementScanner14;
+
 public class TextBasedAdventure {
     boolean hasSword = false;
+    boolean hasGoggles = false;
     Scanner keyboardInput = new Scanner(System.in);
 
     public void execute() {
@@ -13,13 +16,19 @@ public class TextBasedAdventure {
     }
 
     public void start() {
-        System.out.println("You find yourself in a large room. What would you like to do?\n1. Go left \n2. Go right");
+        System.out.println("You find yourself in a large room. What would you like to do?\n1. Go left \n2. Go right \n3. Go straight \n4. Go backwards");
         int input = keyboardInput.nextInt();
         if (input == 1) {
             goLeft();
         }
         else if (input == 2) {
             goRight();
+        }
+        else if (input == 3) {
+            goStraight();
+        }
+        else if (input == 4) {
+            goBackwards();
         }
     }
 
@@ -35,12 +44,31 @@ public class TextBasedAdventure {
     }
 
     public void goRight() {
-        if (!hasSword) {
+        if (!hasSword && !hasGoggles) {
             System.out.println("Theres an old man in front of you holding a sword.  He says, 'It's dangerous to go alone...take this!");
             hasSword = true;
         }
-        else {
+        else if(hasSword && !hasGoggles){
             System.out.println("This is where you found the sword. There is nothing else here...that you can see...");
+        }
+        else if(!hasSword && hasGoggles){
+            System.out.println("Theres an old man in front of you holding a sword.  He says, 'It's dangerous to go alone...take this!");
+            hasSword = true;
+            System.out.println("Using your nightvision goggles you find a cave painting of Professor Alex!");
+        }
+        else {
+            System.out.println("Using your nightvision goggles you find a cave painting of Professor Alex!");
+        }
+        start();
+    }
+
+    public void goBackwards() {
+        if (!hasGoggles) {
+            System.out.println("You find nightvision goggles on the ground!");
+            hasGoggles = true;
+        }
+        else {
+            System.out.println("This is where you found the nightvision goggles. There is nothing else here.");
         }
         start();
     }
