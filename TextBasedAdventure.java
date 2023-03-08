@@ -35,13 +35,27 @@ public class TextBasedAdventure {
 
     public void goRight() {
         if (!hasSword) {
-            System.out.println("You find a sword on the ground!");
+            System.out.println("Theres an old man in front of you holding a sword.  He says, 'It's dangerous to go alone...take this!");
             hasSword = true;
         }
         else {
             System.out.println("There's nothing here...");
         }
         start();
+    }
+
+    public void goStraight()
+    {
+        System.out.println("You find a flight of stairs, do you climb them?\n1. Yes \2. No");
+        int input = keyboardInput.nextInt();
+        if(input == 1)
+        {
+            System.out.println("Congrats! You found daylight and escaped!");
+        }
+        else if(input == 2)
+        {
+            start();
+        }
     }
 
     public void fight() {
