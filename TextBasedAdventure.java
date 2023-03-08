@@ -61,16 +61,24 @@ public class TextBasedAdventure {
 
     public void fight() {
         double chance = (Math.random() * 101);
+        String weapon;
+        if (hasSword)
+            weapon = "sword";
+        else
+            weapon = "fists";
+        String victoryMessage = "You defeat the giant with your "+ weapon +" and run out of the cave!";
+        String deathMessage = "You get stomped by the giant and red stuff goes everywhere.";
+
         if (hasSword) {
             if (chance > 25.0)
-                System.out.println("You defeat the giant with your sword and run out of the cave!");
+                System.out.println(victoryMessage);
             else
-                System.out.println("You get stomped by the giant and red stuff goes everywhere.");
+                System.out.println(deathMessage);
         } else {
             if (chance < 10)
-                System.out.println("You defeat the giant with your sword and run out of the cave!");
+                System.out.println(victoryMessage);
             else
-                System.out.println("You get stomped by the giant and red stuff goes everywhere.");
+                System.out.println(deathMessage);
         }
     }
 
