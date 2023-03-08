@@ -75,11 +75,12 @@ public class TextBasedAdventure {
 
     public void goStraight()
     {
-        System.out.println("You find a flight of stairs, do you climb them?\n1. Yes \2. No");
+        System.out.println("You find a flight of stairs, do you climb them?\n1. Yes \n2. No");
         int input = keyboardInput.nextInt();
         if(input == 1)
         {
             System.out.println("Congrats! You found daylight and escaped!");
+            daylight();
         }
         else if(input == 2)
         {
@@ -99,6 +100,20 @@ public class TextBasedAdventure {
                 System.out.println("You defeat the giant with your sword and run out of the cave!");
             else
                 System.out.println("You get stomped by the giant and red stuff goes everywhere.");
+        }
+    }
+
+    public void daylight()
+    {
+        System.out.println("Now that you escaped, will you tell others of your adventure?\n1. Yes \n2. No");
+        int input = keyboardInput.nextInt();
+        if(input == 1)
+        {
+            System.out.println("You will become the greatest hero of the land.");
+        }
+        else if(input == 2)
+        {
+            System.out.println("That's lame.");
         }
     }
 
