@@ -1,8 +1,6 @@
 import java.util.Scanner;
 import java.lang.Math;
 
-import javax.lang.model.util.ElementScanner14;
-
 public class TextBasedAdventure {
     boolean hasSword = false;
     boolean hasGoggles = false;
