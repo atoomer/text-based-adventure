@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.lang.Math;
 
 public class TextBasedAdventure {
     boolean hasSword = false;
@@ -45,10 +46,17 @@ public class TextBasedAdventure {
     }
 
     public void fight() {
+        double chance = (Math.random() * 101);
         if (hasSword) {
-            System.out.println("You defeat the giant with your sword and run out of the cave!");
+            if (chance > 25.0)
+                System.out.println("You defeat the giant with your sword and run out of the cave!");
+            else
+                System.out.println("You get stomped by the giant and red stuff goes everywhere.");
         } else {
-            System.out.println("You get stomped by the giant and red stuff goes everywhere.");
+            if (chance < 10)
+                System.out.println("You defeat the giant with your sword and run out of the cave!");
+            else
+                System.out.println("You get stomped by the giant and red stuff goes everywhere.");
         }
     }
 
