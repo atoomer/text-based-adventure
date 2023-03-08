@@ -39,7 +39,7 @@ public class TextBasedAdventure {
             hasSword = true;
         }
         else {
-            System.out.println("This is where you found the sword. There is nothing else here.");
+            System.out.println("This is where you found the sword. There is nothing else here...that you can see...");
         }
         start();
     }
