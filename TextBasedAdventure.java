@@ -1,8 +1,6 @@
 import java.util.Scanner;
 import java.lang.Math;
 
-import javax.lang.model.util.ElementScanner14;
-
 public class TextBasedAdventure {
     boolean hasSword = false;
     boolean hasGoggles = false;
@@ -32,15 +30,33 @@ public class TextBasedAdventure {
         }
     }
 
-    public void goLeft() {
-        System.out.println("Oh no! You run into a giant! Fight or flight?\n1. Fight \n2. Flight");
-        int input = keyboardInput.nextInt();
+    public void goLeft() {  
+        if (!hasSword) {
+            System.out.println("Oh no! You run into a giant! Fight or flight?\n1. Fight \n2. Flight \n3. Find a weapon!");
+            int input = keyboardInput.nextInt();
         if (input == 1) {
             fight();
-        }
+            }
         else if (input == 2) {
             start();
-        }  
+            } 
+
+        else if (input == 3) {
+            start();
+            }
+        } else if (hasSword) {
+            System.out.println("Oh no! You run into a giant! Fight or flight?\n1. Fight \n2. Flight");
+            int input = keyboardInput.nextInt();
+        if (input == 1) {
+            fight();
+            }
+        else if (input == 2) {
+            start();
+            } 
+        }
+    
+
+        
     }
 
     public void goRight() {
