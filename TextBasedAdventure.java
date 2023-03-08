@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.lang.Math;
 
 import javax.lang.model.util.ElementScanner14;
 
@@ -15,7 +16,7 @@ public class TextBasedAdventure {
     }
 
     public void start() {
-        System.out.println("You find yourself in a large room. What would you like to do?\n1. Go left \n2. Go right \n3. Go straight");
+        System.out.println("You find yourself in a large room. What would you like to do?\n1. Go left \n2. Go right \n3. Go straight \n4. Go backwards");
         int input = keyboardInput.nextInt();
         if (input == 1) {
             goLeft();
@@ -25,6 +26,9 @@ public class TextBasedAdventure {
         }
         else if (input == 3) {
             goStraight();
+        }
+        else if (input == 4) {
+            goBackwards();
         }
     }
 
@@ -41,14 +45,14 @@ public class TextBasedAdventure {
 
     public void goRight() {
         if (!hasSword && !hasGoggles) {
-            System.out.println("You find a sword on the ground!");
+            System.out.println("Theres an old man in front of you holding a sword.  He says, 'It's dangerous to go alone...take this!");
             hasSword = true;
         }
         else if(hasSword && !hasGoggles){
             System.out.println("This is where you found the sword. There is nothing else here...that you can see...");
         }
         else if(!hasSword && hasGoggles){
-            System.out.println("You find a sword on the ground!");
+            System.out.println("Theres an old man in front of you holding a sword.  He says, 'It's dangerous to go alone...take this!");
             hasSword = true;
             System.out.println("Using your nightvision goggles you find a cave painting of Professor Alex!");
         }
@@ -58,7 +62,7 @@ public class TextBasedAdventure {
         start();
     }
 
-    public void goStraight() {
+    public void goBackwards() {
         if (!hasGoggles) {
             System.out.println("You find nightvision goggles on the ground!");
             hasGoggles = true;
@@ -69,11 +73,32 @@ public class TextBasedAdventure {
         start();
     }
 
+    public void goStraight()
+    {
+        System.out.println("You find a flight of stairs, do you climb them?\n1. Yes \2. No");
+        int input = keyboardInput.nextInt();
+        if(input == 1)
+        {
+            System.out.println("Congrats! You found daylight and escaped!");
+        }
+        else if(input == 2)
+        {
+            start();
+        }
+    }
+
     public void fight() {
+        double chance = (Math.random() * 101);
         if (hasSword) {
-            System.out.println("You defeat the giant with your sword and run out of the cave!");
+            if (chance > 25.0)
+                System.out.println("You defeat the giant with your sword and run out of the cave!");
+            else
+                System.out.println("You get stomped by the giant and red stuff goes everywhere.");
         } else {
-            System.out.println("You get stomped by the giant and red stuff goes everywhere.");
+            if (chance < 10)
+                System.out.println("You defeat the giant with your sword and run out of the cave!");
+            else
+                System.out.println("You get stomped by the giant and red stuff goes everywhere.");
         }
     }
 
